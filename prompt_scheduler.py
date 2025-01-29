@@ -156,18 +156,17 @@ class Pipe:
             }
 
             model_info = Models.get_model_by_id(model)
-
-            model_meta = model_info.meta
+            model_meta = model_info.meta.model_dump()
 
             metadata = {
                 "user_id": self.user_id,
                 "chat_id": self.chat_id,
-                "tool_ids": model_meta.toolIds,
+                "tool_ids": model_meta.get('toolIds', None),
                 "files": None,
                 "features": None,  # TODO enable web_search if user has it enabled on model
             }
 
-            payload['tool_ids'] = metadata['tool_ids']
+            payload['tool_ids'] = metadata.get('tool_ids', None)
 
             token = create_token(
                 data={"id": self.user_id},
