@@ -1,7 +1,7 @@
 """
 title: Prompt Scheduler
 author: Dan James
-author_url: https://github.com/hello-dan-codes
+author_url: https://github.com/hello-dan-codes/prompt-scheduler
 funding_url: https://github.com/open-webui
 version: 0.1
 requirements: apscheduler
